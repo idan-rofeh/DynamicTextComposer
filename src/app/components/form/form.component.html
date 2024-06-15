@@ -1,1 +1,14 @@
-<p>form works!</p>
+<div class="form-container">
+  <h1 class="title">Test Page</h1>
+  <form #form="ngForm" class="form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" class="capsule" [(ngModel)]="name" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" class="capsule" [(ngModel)]="phone" required>
+    </div>
+    <button type="submit" class="submit-btn capsule" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>
