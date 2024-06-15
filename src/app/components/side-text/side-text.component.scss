@@ -1,0 +1,16 @@
+.container {
+  background-color: #5A55F4;
+  color: white;
+  padding: 2.7vw;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  .text {
+    margin: 0;
+    font-size: clamp(20px, 2.7vw, 40px);
+    font-weight: 400;
+    text-align: left;
+  }
+}

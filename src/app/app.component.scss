@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 11vh 9vw;
+  height: 100%;
+
+  .form-container {
+    flex: 1;
+    margin-right: 2.8vw;
+    height: 100%
+  }
+  
+  .info-container {
+    flex: 1;
+    height: 100%
+  }
+}
