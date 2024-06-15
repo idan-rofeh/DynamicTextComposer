@@ -1,0 +1,26 @@
+.container {
+  border-radius: 12px;
+  font-size: 16px;
+  border: 2px solid #DCDBDD;
+  transition: border-color 0.3s ease-in-out;
+  overflow: hidden;
+  &:focus {
+    border-color: #6200ea;
+  }
+
+  .msg {
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid #DCDBDD; 
+    
+    ::ng-deep .highlight {
+      background-color: #6200ea;
+      border-radius: 12px;
+      color: white;
+    }
+  }
+}
