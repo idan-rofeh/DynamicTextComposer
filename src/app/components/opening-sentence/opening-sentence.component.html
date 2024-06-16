@@ -1,6 +1,6 @@
 <div class="container">
   <div contenteditable="true" #messageCmp class="msg" (input)="onInput($event)" (blur)="onTouched()"></div>
   <div class="placeholders">
-    <div class="placeholder highlight" *ngFor="let p of placeholders">{{p}}</div>
+    <div class="placeholder highlight" (click)="onPlaceholderClick(p)" *ngFor="let p of placeholders">{{p}}</div>
   </div>
 </div>
