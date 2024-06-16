@@ -3,16 +3,16 @@
   <form #form="ngForm" class="form">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" class="capsule" [(ngModel)]="name" required>
+      <input type="text" id="name" name="name" class="capsule" [(ngModel)]="name">
     </div>
     <div class="form-group">
       <label for="phone">Phone</label>
-      <input type="text" id="phone" name="phone" class="capsule" [(ngModel)]="phone" required>
+      <input type="tel" id="phone" name="phone" class="capsule" [(ngModel)]="phone">
     </div>
     <div class="form-group">
       <label for="opening-sentence">Opening Sentence</label>
       <app-opening-sentence name="opening-sentence" [(ngModel)]="openingSentence"></app-opening-sentence>
     </div>
-    <button type="submit" class="submit-btn capsule" [disabled]="form.invalid">Submit</button>
+    <button type="submit" class="submit-btn capsule">Submit</button>
   </form>
 </div>
