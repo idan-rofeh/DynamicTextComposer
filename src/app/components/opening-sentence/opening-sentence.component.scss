@@ -15,12 +15,29 @@
     outline: none;
     resize: none;
     border: none;
-    border-bottom: 1px solid #DCDBDD; 
-    
+    border-bottom: 1px solid #DCDBDD;
+    font-size: 12px;
+    height: 12vh;
+
     ::ng-deep .highlight {
       background-color: #6200ea;
       border-radius: 12px;
       color: white;
+      padding: 4px;
+    }
+  }
+
+  .placeholders {
+    display: flex;
+    .highlight {
+      border-radius: 12px;
+      color: #DCDBDD;
+      padding: 4px;
+      margin: 4px;
+      text-align: center;
+      font-size: 12px;
+      border: 1px solid #DCDBDD;
+      cursor: pointer;
     }
   }
 }
