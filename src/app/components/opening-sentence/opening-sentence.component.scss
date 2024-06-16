@@ -19,6 +19,8 @@
     font-size: 12px;
     height: 12vh;
     margin: 4px;
+    line-height: 2;
+    overflow-y: auto;
 
     ::ng-deep .highlight {
       background-color: #6200ea;
