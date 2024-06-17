@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, forwardRef } from '@angular/core';
+import { Component, ElementRef, Input, Renderer2, ViewChild, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -21,9 +21,16 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
 
   @ViewChild('messageCmp', { static: false }) messageCmp!: ElementRef;
 
-  constructor() {}
+  @Input() initialVal: string = '';
+  constructor(private renderer: Renderer2) {}
 
   writeValue(value: string): void {}
+
+  ngAfterViewInit(): void {
+    if (this.initialVal) {
+      this.renderer.setProperty(this.messageCmp.nativeElement, 'innerHTML', this.convertToHtml(this.initialVal));
+    }
+  }
 
   registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
@@ -150,5 +157,12 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
     })
 
     return val;
+  }
+
+  convertToHtml(value: string): string {
+    let html = value.replace(/\n/g, '<br/>');
+    html = html.replace(/\[([^\]]+)\]/g, '<span class="highlight" contentEditable="false">$1</span>');
+
+    return html;
   }
 }

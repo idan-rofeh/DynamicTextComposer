@@ -9,8 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class FormComponent implements OnInit {
   name: string = '';
   phone: string = '';
-  openingSentence: string = '';
   form!: FormGroup;
+  openingSentence: string = "Hi, I'm [Agent Name] from [Company Name]. How can I help you today?";
 
   constructor(private fb: FormBuilder) {}
 
