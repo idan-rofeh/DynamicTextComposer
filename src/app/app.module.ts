@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
 import { SideTextComponent } from './components/side-text/side-text.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { OpeningSentenceComponent } from './components/opening-sentence/opening-sentence.component';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { OpeningSentenceComponent } from './components/opening-sentence/opening-
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,6 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
   ]
 })
 export class OpeningSentenceComponent implements ControlValueAccessor {
-  private innerValue: string = '';
   private caretPos: number = 0;
   private onChange: (value: string) => void = () => {};
   public onTouched: () => void = () => {};
@@ -24,9 +23,7 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
 
   constructor() {}
 
-  writeValue(value: string): void {
-    this.innerValue = value || '';
-  }
+  writeValue(value: string): void {}
 
   registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
@@ -37,10 +34,11 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
   }
 
   onInput(event: Event): void {
-    const input = event.target as HTMLDivElement;
-    this.innerValue = input.innerText;
+    const target = event.target as any;
+    const {childNodes} = target;
+    const message = this.getFormValue(childNodes);
     if (this.onChange) {
-      this.onChange(this.innerValue);
+      this.onChange(message);
     }
     if (this.onTouched) {
       this.onTouched();
@@ -50,7 +48,9 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
 
   onPlaceholderClick(p: string): void {
     const el = this.messageCmp.nativeElement;
-    if (!el.innerHTML) el.innerHTML = '\u200b';
+    if (!el.innerHTML) {
+      el.innerHTML = '\u200b';
+    };
     el.focus();
     this.setCaretPosition();
 
@@ -127,5 +127,28 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
     clonedRange.setEnd(range.endContainer, range.endOffset);
     
     return clonedRange.toString().length;
+  }
+
+  getFormValue(nodeList: NodeList): string {
+    let val = '';
+    nodeList.forEach((n: any) => {
+      let text = '';
+      switch (n.nodeName) {
+        case ('#text'):
+          text = n.data;
+          break;
+        case ('SPAN'):
+          text = `[${n.textContent}]`;
+          break;
+        case ('BR'):
+          text = '\n'
+          break;
+        default:
+          text = '';
+      }
+      val += text;
+    })
+
+    return val;
   }
 }
