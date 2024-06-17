@@ -29,7 +29,8 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
   ngAfterViewInit(): void {
     if (this.initialVal) {
       this.renderer.setProperty(this.messageCmp.nativeElement, 'innerHTML', this.convertToHtml(this.initialVal));
-    }
+    };
+    document.addEventListener('selectionchange', this.onSelectionChange);
   }
 
   registerOnChange(fn: (value: string) => void): void {
@@ -164,5 +165,16 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
     html = html.replace(/\[([^\]]+)\]/g, '<span class="highlight" contentEditable="false">$1</span>');
 
     return html;
+  }
+
+  onSelectionChange = (): void => {
+    const selection = document.getSelection();
+    if (selection && this.messageCmp.nativeElement.contains(selection.anchorNode)) {
+      this.caretPos = this.getCaretPos();
+    }
+  }
+
+  ngOnDestroy(): void {
+    document.removeEventListener('selectionchange', this.onSelectionChange);
   }
 }

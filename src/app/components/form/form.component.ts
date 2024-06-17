@@ -11,6 +11,8 @@ export class FormComponent implements OnInit {
   phone: string = '';
   form!: FormGroup;
   openingSentence: string = "Hi, I'm [Agent Name] from [Company Name]. How can I help you today?";
+  // openingSentence: string = "";
+
 
   constructor(private fb: FormBuilder) {}
 
