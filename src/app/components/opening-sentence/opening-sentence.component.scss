@@ -18,7 +18,6 @@
     border-bottom: 1px solid #DCDBDD;
     font-size: 10px;
     height: 12vh;
-    margin: 4px;
     line-height: 2;
     overflow-y: auto;
     min-height: 15vh;
@@ -35,6 +34,7 @@
       padding: 4px;
       width: fit-content;
       display: inline-block;
+      font-size: 8px;
     }
   }
 
@@ -47,7 +47,7 @@
       padding: 4px;
       margin: 4px;
       text-align: center;
-      font-size: 9px;
+      font-size: 8px;
       border: 1px solid #DCDBDD;
       cursor: pointer;
       @media (min-width: 800px) {

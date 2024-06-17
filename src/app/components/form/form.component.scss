@@ -3,7 +3,7 @@
   flex-direction: column;
   align-content: center;
   height: 100%;
-  padding: 5vh 1vh;
+  padding: 1vh 1vh;
 
   @media (min-width: 800px) {
     width: 28vw;
@@ -50,8 +50,11 @@
     }
 
     .capsule {
-      height: 42px;
+      height: 4vh;
       border-radius: 12px;
+      @media (min-width: 800px) {
+        height: 42px;
+      }
     }
   }
 }
